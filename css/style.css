@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 40px 50px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 450px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transform: perspective(1000px) rotateX(-10deg);
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  transform: perspective(1000px) rotateX(0);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.nama {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.nama input {
+  width: 100%;
+  height: 55px;
+  background: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  outline: none;
+  font-size: 18px;
+  padding: 15px 38px 15px 15px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nama input:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+}
+
+.nama input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn button {
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: all 0.3s ease;
+}
+
+.btn button:hover:before {
+  left: 100%;
+}
+
+.btn button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(106, 17, 203, 0.4);
+}
+
+#result {
+  margin-top: 20px;
+  padding: 30px;
+  background: linear-gradient(145deg, #f4f4f4, #e0e0e0);
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#result:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+#result p {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Screen */
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden; /* Menyembunyikan loading screen */
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transisi smooth */
+  z-index: 9999; /* Pastikan di atas semua elemen */
+}
+
+#loading.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0s;
+}
+
+#loading h2 {
+  font-size: 6vw;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  2%, 64% { transform: translate(2px, 0) skew(0deg); }
+  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+  62% { transform: translate(0, 0) skew(5deg); }
+}
+
+.footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo {
+  color: #6a11cb;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #2575fc;
+}
+
+.social-media {
+  display: flex;
+  gap: 20px;
+}
+
+.social-media a {
+  color: #6a11cb;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #2575fc;
+  transform: scale(1.2) rotate(360deg);
+}
+
+.social-media a i {
+  font-size: 28px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container h2 {
+    font-size: 28px;
+  }
+  
+  #loading h2 {
+    font-size: 8vw;
+  }
+}
